@@ -18,12 +18,15 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Build docker test image
+        working-directory: backend
         run: docker build -t test-boilerplate . --target test
 
       - name: Run docker test image
+        working-directory: backend
         run: docker run test-boilerplate
 
       - name: Build docker test image
+        working-directory: backend
         run: docker build -t test-boilerplate . --target prod
 
   # deploy:
